@@ -1,10 +1,10 @@
-This setup assumes the following:
+# Assumptions
 1. You are using Windows OS
 2. You are using Visual Studio Code as your IDE, and it is installed at the default path
 3. Source tree is installed to the default path
 4. Git is installed to the default path
 
-*Tool Resources*
+# Tool Resources
 1. Visual Studio Code: https://code.visualstudio.com/
 2. Git: https://git-scm.com/downloads
 3. GoLang: https://golang.org/
@@ -13,23 +13,23 @@ This setup assumes the following:
 6. GoLang Installation Test: https://golang.org/doc/install#testing
 7. Notepad++: https://notepad-plus-plus.org/downloads/
 
-*Source Resources*
+# Source Resources
 1. Code Repository: https://github.com/TournyMasterBot/GoLang
 
-*Web References*
+# Web References
 1. GoLang: https://golang.org/doc/
 
-*Setup* 
-1. Create your GoLang source file path, for my projects I will be using 'C:\Projects\GoLang\src\github.com\tournymasterbot'
-2. Download GoLang - I used the recommended defaults to install to 'C:\Go\'
-3. Set your GoPath variable to be the 'src' portion of the path from step 1, so example: 'C:\Projects\GoLang' (To access this, open your system properties and click 'Environment Variables', change 'GOPATH')
-3. Install 'Go' from the extensions marketplace
-4. Install GoPls and configure settings.json
-* Hit 'ctrl+,' and open the extension settings 
-* Click on 'Go'
-* Scroll down to 'Edit in settings.json' (it's a small hyperlink)
-* settings.json content, this will prompt to install gopls tools, accept
-`
+# Setup 
+1. Create your GoLang source file path, for my projects I will be using `C:\Projects\GoLang\src\github.com\tournymasterbot`
+2. Download GoLang - I used the recommended defaults to install to `C:\Go\`
+3. Set your GoPath variable to be the 'src' portion of the path from step 1, so example: `C:\Projects\GoLang` (To access this, open your system properties and click 'Environment Variables', change 'GOPATH')
+3. Install `Go` from the extensions marketplace
+4. Install `GoPls` and configure `settings.json`
+* Hit `ctrl+,` and open the extension settings 
+* Click on `Go`
+* Scroll down to `Edit in settings.json` (it's a small hyperlink)
+* `settings.json` content, this will prompt to install gopls tools, accept
+```json
 {
     "mssql.intelliSense.lowerCaseSuggestions": true,
     "git.ignoreMissingGitWarning": true,
@@ -74,6 +74,6 @@ This setup assumes the following:
     },
     "typescript.npm": ""
 }
-`
-4. Click 'View -> Terminal' in the VSCode menu
-5. Follow the steps to test your installation. (Project: src/github.com/tournymasterbot/go_installation_test/main.go) - Install any tools it prompts to install
+```
+4. Click `View -> Terminal` in the VSCode menu
+5. Follow the steps to test your installation. (Project: `src/github.com/tournymasterbot/go_installation_test/main.go`) - Install any tools it prompts to install
