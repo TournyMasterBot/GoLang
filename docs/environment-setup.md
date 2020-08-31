@@ -20,7 +20,7 @@
 1. GoLang: https://golang.org/doc/
 
 # Setup 
-1. Create your GoLang source file path, for my projects I will be using `C:\Projects\GoLang\src\github.com\tournymasterbot`
+1. Create your GoLang source file path, for my projects I will be using `C:\Projects\GoLang\src\github.com\tournymasterbot` - if you decide to change this path, you will need to update the appropriate `go.mod` and `go imports` 
 2. Download GoLang - I used the recommended defaults to install to `C:\Go\`
 3. Set your GoPath variable to be the 'src' portion of the path from step 1, so example: `C:\Projects\GoLang` (To access this, open your system properties and click 'Environment Variables', change 'GOPATH')
 3. Install `Go` from the extensions marketplace
@@ -77,3 +77,4 @@
 ```
 4. Click `View -> Terminal` in the VSCode menu
 5. Follow the steps to test your installation. (Project: `src/github.com/tournymasterbot/go_installation_test/main.go`) - Install any tools it prompts to install
+6. In the bottom right status bar click 'Analysis tools missing' and install the analysis tools
