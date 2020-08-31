@@ -29,7 +29,7 @@
 * Click on `Go`
 * Scroll down to `Edit in settings.json` (it's a small hyperlink)
 * `settings.json` content, this will prompt to install gopls tools, accept
-```json
+```javascript
 {
     "mssql.intelliSense.lowerCaseSuggestions": true,
     "git.ignoreMissingGitWarning": true,
