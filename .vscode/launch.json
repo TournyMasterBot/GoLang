@@ -10,10 +10,8 @@
             "request": "launch",
             "mode": "auto",
             "program": "${fileDirname}",
-            "env": {
-                "BuildEnv":"Development"
-            },
-            "args": []
+            "env": {},
+            "args": ["test"]
         }
     ]
 }

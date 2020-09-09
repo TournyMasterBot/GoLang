@@ -4,4 +4,4 @@ replace github.com/tournymasterbot/io_helpers => ../io_helpers // 'replace' shou
 
 go 1.15
 
-require github.com/tournymasterbot/io_helpers v0.0.0-00010101000000-000000000000 // indirect
+require github.com/tournymasterbot/io_helpers v0.0.0-00010101000000-000000000000

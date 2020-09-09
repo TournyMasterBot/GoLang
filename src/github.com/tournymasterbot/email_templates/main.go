@@ -1,9 +1,10 @@
 package main
 
 import (
-	"bufio"
 	"encoding/json"
 	"fmt"
+	"html/template"
+	"log"
 	"os"
 	"strings"
 
@@ -22,46 +23,49 @@ type Tokens []struct {
 }
 
 func main() {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Println("Simple Shell")
-	fmt.Println("---------------------")
-	// Simple readline loop to get user input and do something with it.
-	for {
-		fmt.Print("-> ")
-		text, _ := reader.ReadString('\n')
-		text = strings.TrimSpace(text)
-		switch text {
-		case "help":
-			fmt.Println("Available Commands: 'templates', 'tokens'")
-		case "templates":
-			// Read the template file
-			testTemplate, err := iohelper.ReadAllText("./templates/test.template")
-			// Output the template file, or error
-			if err != nil {
-				fmt.Println(err)
-				return
-			}
-			fmt.Println(testTemplate)
-		case "tokens":
-			rawTokenData, err := iohelper.ReadAllBytes("./templates/test.tokens")
-			if err != nil {
-				fmt.Println(err)
-				return
-			}
+	// Sanity checks to make sure we only get one arg which should be a template name
+	if os.Args == nil || len(os.Args) <= 1 || len(os.Args) > 2 {
+		fmt.Println("You must pass one argument: The template name without the file extension.")
+		return
+	}
 
-			var data = TokenData{}
-			if err := json.Unmarshal(rawTokenData, &data); err != nil {
-				fmt.Println(err)
-				return
-			}
+	// Process template name from args
+	var templateName = os.Args[1]
+	templateName = strings.TrimSpace(templateName)
+	if len(templateName) == 0 {
+		fmt.Println("The template name may not be blank")
+		return
+	}
+
+	// Read the template file
+	templateText, err := iohelper.ReadAllText("./templates/" + templateName + ".template")
+	// Output the template file, or error
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println("Base Template:")
+	fmt.Println(templateText)
+
+	// Load tokens
+	rawTokenData, err := iohelper.ReadAllBytes("./templates/" + templateName + ".tokens")
+	if err == nil {
+		var data = TokenData{}
+		// Process tokens
+		if err := json.Unmarshal(rawTokenData, &data); err == nil {
+			t := template.New("everything")
+			template.Must(t.New("/").Parse(templateText))
+			fmt.Println("Tokens Found:")
+			// Add all tokens for the template
 			for i := 0; i < len(data.Tokens); i++ {
+				template.Must(t.New(data.Tokens[i].Key).Parse(data.Tokens[i].Value))
 				fmt.Println("Key: ", data.Tokens[i].Key, ", Value: ", data.Tokens[i].Value)
-				fmt.Println("---")
 			}
-		}
-		// Debug
-		if strings.Compare("hi", text) == 0 {
-			fmt.Println("hello, Yourself")
+			fmt.Println("***")
+			// Output the template to the command line
+			if err := t.ExecuteTemplate(os.Stdout, "/", templateText); err != nil {
+				log.Fatal("Failed to execute:", err)
+			}
 		}
 	}
 }

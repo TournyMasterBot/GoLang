@@ -1,1 +1,3 @@
+Hello, {{ template "Name" . }}
+{{ template "Title" . }}
 This is a test email template
