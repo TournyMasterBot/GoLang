@@ -36,7 +36,7 @@ func Start(config ServerConfig) {
 		WriteTimeout:   60 * time.Second,
 		MaxHeaderBytes: 1 << 20,
 	}
-	fmt.Println("Starting server: " + server.Addr)
+	fmt.Println("Starting server: " + server.Addr + ", Max header bytes: " + strconv.Itoa(server.MaxHeaderBytes))
 	log.Fatal(server.ListenAndServe())
 }
 
