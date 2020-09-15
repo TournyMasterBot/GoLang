@@ -9,7 +9,7 @@
 2. Git: https://git-scm.com/downloads
 3. GoLang: https://golang.org/
 4. Source Tree: https://www.sourcetreeapp.com/
-5. GoPls: https://github.com/golang/vscode-go/blob/master/docs/gopls.md
+5. GoPls: https://github.com/golang/vscode-go/blob/main/docs/gopls.md
 6. GoLang Installation Test: https://golang.org/doc/install#testing
 7. Notepad++: https://notepad-plus-plus.org/downloads/
 
