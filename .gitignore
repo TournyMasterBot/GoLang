@@ -6,6 +6,7 @@
 *.dylib
 pkg/
 bin/
+sqlite3.def
 
 # Test binary, built with `go test -c`
 *.test
