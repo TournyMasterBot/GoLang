@@ -30,7 +30,7 @@ Hosts a simple web server that supports basic slug usage
 Connects to a database, opens connections and allows querying the database
 
 ## io_helpers
-Simple file system interactions to read files
+Simple file system interactions to read files, also supports gzip compression and inflation
 
 ## web_request_helpers
 Simple HTTP client to support GET and POST data
