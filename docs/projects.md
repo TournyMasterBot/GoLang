@@ -19,6 +19,9 @@ Runs a simple test to see if Go has been properly installed
 ## io_explorer
 A simple file test to read and write files. Also shows basic file permission editing
 
+## multi_web_query
+Multi web (get) request tester to display variadic functions
+
 ## simple_query
 Executes an extremely basic SQL query to test connecting to a database and running a select query
 
